@@ -161,11 +161,8 @@
     @media (prefers-reduced-motion: reduce) { .hero__cue span { animation: none; } }
     /* MOBILE: desativa o "pin" (position:fixed) do hero — evita bug de barra de endereço dinâmica + 100svh. Hero volta ao fluxo normal. */
     @media (max-width: 768px) {
-      /* mobile: hero mostra a composição retrato com a marca inteira, sem corte */
-      .hero { height: auto; min-height: 0; }
-      .hero__media { position: static; height: auto; overflow: visible; }
-      .hero__media img { height: auto; display: block; }
-      .hero__media::after { display: none; }
+      /* mantém o hero fixado + parallax por sobreposição também no mobile (imagem hero-mobile.png) */
+      .hero__media::after { display: none; } /* sem véu escuro sobre a composição com a marca */
       .hero__cue { display: none; }
       /* evita logo dobrado: esconde a marca do menu sobre o hero; reaparece ao rolar */
       .nav:not(.scrolled) .brand-logo { opacity: 0; visibility: hidden; }
@@ -615,19 +612,13 @@
 
       // Hero fixada: leve zoom + drift conforme a dobra sobe por cima (escala cresce do centro, sem revelar bordas)
       if (heroMedia) {
-        if (window.innerWidth <= 768) {
-          // Mobile: sem pin/parallax — limpa qualquer transform inline pro CSS assumir
-          heroMedia.style.transform = '';
-          if (heroCue) { heroCue.style.opacity = ''; heroCue.style.pointerEvents = ''; }
-        } else {
-          const p = Math.min(1, Math.max(0, window.scrollY / vh)); // 0..1 no primeiro viewport
-          const scale = (1 + p * 0.12).toFixed(4);
-          const y = (p * vh * 0.05).toFixed(1); // deriva sutil, abaixo da margem da escala (sem revelar borda)
-          heroMedia.style.transform = 'translate3d(0,' + y + 'px,0) scale(' + scale + ')';
-          if (heroCue) {
-            heroCue.style.opacity = Math.max(0, 1 - p * 2.2).toFixed(3);
-            heroCue.style.pointerEvents = p > 0.4 ? 'none' : 'auto';
-          }
+        const p = Math.min(1, Math.max(0, window.scrollY / vh)); // 0..1 no primeiro viewport
+        const scale = (1 + p * 0.12).toFixed(4);
+        const y = (p * vh * 0.05).toFixed(1); // deriva sutil, abaixo da margem da escala (sem revelar borda)
+        heroMedia.style.transform = 'translate3d(0,' + y + 'px,0) scale(' + scale + ')';
+        if (heroCue) {
+          heroCue.style.opacity = Math.max(0, 1 - p * 2.2).toFixed(3);
+          heroCue.style.pointerEvents = p > 0.4 ? 'none' : 'auto';
         }
       }
 
