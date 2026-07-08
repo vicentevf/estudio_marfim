@@ -6,10 +6,10 @@
   <title>Estúdio Marfim — Interiores & Design</title>
   <meta name="description" content="O Estúdio Marfim é um estúdio criativo de interiores e design — espaços, mobiliário e materiais pensados com contenção e calor." />
 
-  <!-- Fonts: Fraunces (display serif) + Inter (grotesque sans) -->
+  <!-- Fonts: Bodoni Moda (display Didone serif) + Hanken Grotesk (body sans) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400;1,6..96,500&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     /* ============================================================
@@ -61,7 +61,7 @@
       margin: 0;
       background: var(--bg);
       color: var(--ink);
-      font-family: "Inter", system-ui, sans-serif;
+      font-family: "Hanken Grotesk", system-ui, sans-serif;
       font-size: var(--text-base);
       line-height: 1.6;
       font-weight: 400;
@@ -73,7 +73,7 @@
     }
     img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
-    h1, h2, h3 { margin: 0; font-family: "Fraunces", Georgia, serif; font-weight: 400; line-height: 0.98; letter-spacing: -0.01em; }
+    h1, h2, h3 { margin: 0; font-family: "Bodoni Moda", Georgia, serif; font-weight: 400; line-height: 0.98; letter-spacing: -0.01em; }
     ::selection { background: var(--cacao); color: var(--pearl); }
 
     .wrap { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: var(--gutter); }
@@ -225,13 +225,13 @@
 
     /* esquerda: retrato + nome */
     .studio__cap { margin-top: 1.2rem; }
-    .studio__name { display: block; font-family: "Fraunces", serif; font-weight: 300; font-size: var(--text-lg); letter-spacing: -0.01em; color: var(--ink); }
+    .studio__name { display: block; font-family: "Bodoni Moda", serif; font-weight: 300; font-size: var(--text-lg); letter-spacing: -0.01em; color: var(--ink); }
     .studio__role { display: block; margin-top: .4rem; font-size: var(--text-xs); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
 
     /* direita: texto */
     .studio__text { max-width: 56ch; }
     .studio__text > .eyebrow { display: block; margin-bottom: 1.3rem; }
-    .studio__statement { font-family: "Fraunces", serif; font-weight: 300; font-size: var(--text-xl); line-height: 1.16; letter-spacing: -0.02em; color: var(--ink); text-wrap: balance; margin-bottom: 1.5rem; }
+    .studio__statement { font-family: "Bodoni Moda", serif; font-weight: 300; font-size: var(--text-xl); line-height: 1.16; letter-spacing: -0.02em; color: var(--ink); text-wrap: balance; margin-bottom: 1.5rem; }
     .studio__statement b { font-weight: 400; font-style: italic; color: var(--muted); }
     .studio__text p.body { color: var(--ink-soft); margin-bottom: 1.05rem; }
 
@@ -239,8 +239,8 @@
     .disc { margin-top: clamp(2.5rem, 5vw, 4rem); border-top: 1px solid var(--line); padding-top: clamp(1.5rem, 3vw, 2.4rem); }
     .disc__tabs { display: flex; flex-wrap: wrap; gap: clamp(1.3rem, 3.5vw, 3rem); }
     .disc__tab { display: inline-flex; align-items: baseline; gap: .6rem; background: none; border: 0; cursor: pointer; padding: 0 0 .55rem; font: inherit; color: var(--ink-soft); position: relative; transition: color .45s var(--ease); }
-    .disc__tab .disc__num { font-family: "Fraunces", serif; font-size: .72rem; letter-spacing: .14em; color: var(--taupe); }
-    .disc__tab .disc__name { font-family: "Fraunces", serif; font-weight: 300; font-size: var(--text-lg); letter-spacing: -0.01em; }
+    .disc__tab .disc__num { font-family: "Bodoni Moda", serif; font-size: .72rem; letter-spacing: .14em; color: var(--taupe); }
+    .disc__tab .disc__name { font-family: "Bodoni Moda", serif; font-weight: 300; font-size: var(--text-lg); letter-spacing: -0.01em; }
     .disc__tab::after { content: ""; position: absolute; left: 0; bottom: 0; height: 1.5px; width: 0; background: var(--cacao); transition: width .45s var(--ease); }
     .disc__tab.is-active { color: var(--ink); }
     .disc__tab.is-active::after { width: 100%; }
@@ -288,7 +288,7 @@
     }
     .project__index {
       position: absolute; top: 1rem; left: 1.1rem; z-index: 2;
-      font-family: "Fraunces", serif; font-size: 0.95rem; letter-spacing: 0.1em;
+      font-family: "Bodoni Moda", serif; font-size: 0.95rem; letter-spacing: 0.1em;
       color: var(--pearl); mix-blend-mode: difference;
     }
     .project__body { padding-inline: 0; }
@@ -318,7 +318,7 @@
     .approach__grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: color-mix(in oklab, var(--taupe) 30%, transparent); border-top: 1px solid color-mix(in oklab, var(--taupe) 30%, transparent); }
     @media (min-width: 760px) { .approach__grid { grid-template-columns: repeat(3, 1fr); } }
     .approach__cell { background: var(--leather); padding: clamp(1.8rem, 3vw, 2.8rem) clamp(1.2rem,2vw,2rem); }
-    .approach__cell .num { font-family: "Fraunces", serif; font-size: 0.9rem; color: var(--taupe); letter-spacing: 0.1em; }
+    .approach__cell .num { font-family: "Bodoni Moda", serif; font-size: 0.9rem; color: var(--taupe); letter-spacing: 0.1em; }
     .approach__cell h3 { font-size: var(--text-lg); font-weight: 300; margin: 1rem 0 0.8rem; color: var(--pearl); }
     .approach__cell p { color: color-mix(in oklab, var(--pearl) 72%, var(--taupe)); font-weight: 300; max-width: 40ch; }
 
@@ -327,7 +327,7 @@
     .stats__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(2rem,4vw,3rem); }
     @media (min-width: 760px) { .stats__grid { grid-template-columns: repeat(4, 1fr); } }
     .stat { border-top: 1px solid var(--line); padding-top: 1.4rem; }
-    .stat .n { font-family: "Fraunces", serif; font-size: clamp(2.6rem, 5vw, 4.6rem); font-weight: 300; line-height: 1; letter-spacing: -0.03em; }
+    .stat .n { font-family: "Bodoni Moda", serif; font-size: clamp(2.6rem, 5vw, 4.6rem); font-weight: 300; line-height: 1; letter-spacing: -0.03em; }
     .stat .l { font-size: var(--text-xs); letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-top: 0.8rem; }
 
     /* ============================================================ CONTACT / CTA ============================================================ */
@@ -346,12 +346,12 @@
     .contact__col { color: var(--ink-soft); }
     .contact__col .eyebrow { display:block; margin-bottom: 0.8rem; }
     .contact__col p { margin: 0 0 1.5rem; }
-    .contact__col a.big { font-family: "Fraunces", serif; font-size: var(--text-lg); color: var(--ink); }
+    .contact__col a.big { font-family: "Bodoni Moda", serif; font-size: var(--text-lg); color: var(--ink); }
 
     /* ============================================================ FOOTER ============================================================ */
     footer { background: var(--leather); color: var(--pearl); padding: clamp(3rem,6vw,5rem) 0 2rem; }
     .foot__top { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: flex-start; padding-bottom: 3rem; border-bottom: 1px solid color-mix(in oklab, var(--taupe) 30%, transparent); }
-    .foot__brand { font-family: "Fraunces", serif; font-size: clamp(2.5rem, 7vw, 6rem); font-weight: 300; letter-spacing: 0.02em; line-height: 0.9; }
+    .foot__brand { font-family: "Bodoni Moda", serif; font-size: clamp(2.5rem, 7vw, 6rem); font-weight: 300; letter-spacing: 0.02em; line-height: 0.9; }
     .foot__logo { height: clamp(38px, 7vw, 84px); width: auto; filter: brightness(0) invert(1); }
     .foot__cols { display: flex; gap: clamp(2.5rem, 5vw, 5rem); flex-wrap: wrap; }
     .foot__cols h4 { font-size: var(--text-xs); letter-spacing: 0.2em; text-transform: uppercase; color: var(--taupe); margin: 0 0 1rem; font-weight: 500; }
