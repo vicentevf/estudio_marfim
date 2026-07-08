@@ -159,6 +159,17 @@
       100% { transform: translateY(13px); opacity: 0; }
     }
     @media (prefers-reduced-motion: reduce) { .hero__cue span { animation: none; } }
+    /* MOBILE: desativa o "pin" (position:fixed) do hero — evita bug de barra de endereço dinâmica + 100svh. Hero volta ao fluxo normal. */
+    @media (max-width: 768px) {
+      /* mobile: hero mostra a composição retrato com a marca inteira, sem corte */
+      .hero { height: auto; min-height: 0; }
+      .hero__media { position: static; height: auto; overflow: visible; }
+      .hero__media img { height: auto; display: block; }
+      .hero__media::after { display: none; }
+      .hero__cue { display: none; }
+      /* evita logo dobrado: esconde a marca do menu sobre o hero; reaparece ao rolar */
+      .nav:not(.scrolled) .brand-logo { opacity: 0; visibility: hidden; }
+    }
     .hero__inner {
       position: relative; z-index: 2; height: 100%;
       display: flex; flex-direction: column; justify-content: flex-end;
@@ -370,7 +381,12 @@
   <!-- ============================ HERO ============================ -->
   <header class="hero" id="top">
     <div class="hero__media" data-hero>
-      <img src="assets/hero-main.png" alt="Interior em tons de marfim do Estúdio Marfim" fetchpriority="high" />
+      <picture>
+        <!-- mobile: composição retrato com a marca -->
+        <source media="(max-width: 768px)" srcset="assets/hero-mobile.png" />
+        <!-- desktop: foto paisagem -->
+        <img src="assets/hero-main.png" alt="Interior em tons de marfim do Estúdio Marfim" fetchpriority="high" />
+      </picture>
     </div>
     <a href="#studio" class="hero__cue" data-cue aria-label="Rolar para o conteúdo"><span></span></a>
   </header>
@@ -599,13 +615,19 @@
 
       // Hero fixada: leve zoom + drift conforme a dobra sobe por cima (escala cresce do centro, sem revelar bordas)
       if (heroMedia) {
-        const p = Math.min(1, Math.max(0, window.scrollY / vh)); // 0..1 no primeiro viewport
-        const scale = (1 + p * 0.12).toFixed(4);
-        const y = (p * vh * 0.05).toFixed(1); // deriva sutil, abaixo da margem da escala (sem revelar borda)
-        heroMedia.style.transform = 'translate3d(0,' + y + 'px,0) scale(' + scale + ')';
-        if (heroCue) {
-          heroCue.style.opacity = Math.max(0, 1 - p * 2.2).toFixed(3);
-          heroCue.style.pointerEvents = p > 0.4 ? 'none' : 'auto';
+        if (window.innerWidth <= 768) {
+          // Mobile: sem pin/parallax — limpa qualquer transform inline pro CSS assumir
+          heroMedia.style.transform = '';
+          if (heroCue) { heroCue.style.opacity = ''; heroCue.style.pointerEvents = ''; }
+        } else {
+          const p = Math.min(1, Math.max(0, window.scrollY / vh)); // 0..1 no primeiro viewport
+          const scale = (1 + p * 0.12).toFixed(4);
+          const y = (p * vh * 0.05).toFixed(1); // deriva sutil, abaixo da margem da escala (sem revelar borda)
+          heroMedia.style.transform = 'translate3d(0,' + y + 'px,0) scale(' + scale + ')';
+          if (heroCue) {
+            heroCue.style.opacity = Math.max(0, 1 - p * 2.2).toFixed(3);
+            heroCue.style.pointerEvents = p > 0.4 ? 'none' : 'auto';
+          }
         }
       }
 
